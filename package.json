@@ -5,15 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start" : "node server.js"
+    "start": "node server.js"
   },
-  "jest" : {
+  "jest": {
     "collectCoverage": true
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "jest": "^26.5.2"
   }
 }
