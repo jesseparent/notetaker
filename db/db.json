@@ -1,24 +1,14 @@
 {
   "notes": [
     {
-      "title": "Test Title",
-      "text": "Test text",
-      "id": "test_id"
+      "title": "test 1",
+      "text": "testing 1",
+      "id": 1602293219578
     },
     {
-      "title": "Test Title 2",
-      "text": "Test2 text2",
-      "id": "test_id2"
-    },
-    {
-      "title": "html",
-      "text": "html text",
-      "id": "2"
-    },
-    {
-      "title": "note with ms",
-      "text": "ms since epoch",
-      "id": 1602290764354
+      "title": "test 3 ",
+      "text": "testing 3",
+      "id": 1602293242879
     }
   ]
 }
