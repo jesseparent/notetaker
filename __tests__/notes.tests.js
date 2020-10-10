@@ -17,34 +17,34 @@ test("creates a note", () => {
 test("deletes a note", () => {
   let notesArray = [
     {
-      "id" : 1,
+      "id" : "1delete",
       "title" : "Delete Me",
       "text" : "deleting"
     },
     {
-      "id" : 2,
+      "id" : "2keep",
       "title" : "Keep Me",
       "text" : "keeping"
     }
   ];
 
-  notesArray = deleteNote(1, notesArray);
+  notesArray = deleteNote("1delete", notesArray);
 
   expect(notesArray.length).toEqual(1);
-  expect(notesArray[0].id).toBe(2);
+  expect(notesArray[0].id).toBe("2keep");
   expect(notesArray[0].title).toBe("Keep Me");
   expect(notesArray[0].text).toBe("keeping");
 });
 
 test("validates title", () => {
   const goodNote = {
-    "id" : 1,
+    "id" : "1",
     "title" : "Title",
     "text" : "text"
   };
 
   const badNote = {
-    "id" : 2,
+    "id" : "2",
     "title" : "Missing Text"
   };
 
@@ -57,13 +57,13 @@ test("validates title", () => {
 
 test("validates text", () => {
   const goodNote = {
-    "id" : 1,
+    "id" : "1",
     "title" : "Title",
     "text" : "text"
   };
 
   const badNote = {
-    "id" : 2,
+    "id" : "2",
     "text" : "Missing Title"
   };
 
@@ -77,19 +77,19 @@ test("validates text", () => {
 test("find a note by its id", () => {
   let notesArray = [
     {
-      "id" : 1,
+      "id" : "1As",
       "title" : "Note 1",
       "text" : "First note"
     },
     {
-      "id" : 2,
+      "id" : "2find",
       "title" : "Find Me",
       "text" : "Look for me"
     }
   ];
 
-  const foundNote = findById(2, notesArray);
-  const lostNote = findById(3, notesArray);
+  const foundNote = findById("2find", notesArray);
+  const lostNote = findById("3missing", notesArray);
 
   expect(foundNote).toBe(notesArray[1]);
   expect(foundNote).toBeTruthy();

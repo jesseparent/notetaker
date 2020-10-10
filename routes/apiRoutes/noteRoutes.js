@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const unique_id_key = require('unique-id-key');
 
 const { findById, createNewNote, validateNote, deleteNote } = require('../../lib/notes');
 let { notes } = require('../../db/db');
@@ -11,7 +12,7 @@ router.get('/notes', (req, res) => {
 // Create a new note
 router.post('/notes', (req, res) => {
   // set id based on milliseconds since Epoch
-  req.body.id = new Date().getTime();
+  req.body.id = unique_id_key.AlphaNum(16);
 
   // if any data in req.body is incorrect, send 400 error back
   if (!validateNote(req.body)) {
@@ -24,7 +25,7 @@ router.post('/notes', (req, res) => {
 
 // Delete an existing note
 router.delete('/notes/:id', function (req, res) {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   
   // if any note ID is not found, send 404 error back
   if (!findById(id, notes)) {
